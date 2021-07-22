@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>time</title>
+</head>
+<body>
+	<input type="time" id="myTime">
+	<input type="button" value="show" onclick="setTimeout(function(){clickSubmit()},timing())">
+	<p id="para"></p>
+	<script type="text/javascript">
+		var hrs, mins, secs, givenHr, givenMin, timeNow, given, now, x;
+		function timing() {
+			x = document.getElementById('myTime').value;
+			givenHr = x.substr(0,2);
+			givenMin = x.substr(3,5);
+			hrs = new Date().getHours();
+			mins = new Date().getMinutes();
+			secs = new Date().getSeconds();
+			timeNow =  hrs + ":" + mins;
+			given = new Date(null,null,null,givenHr,givenMin-1,50);
+			now = new Date(null,null,null,hrs,mins,secs); 
+			return given-now;
+		}
+		function clickSubmit() {
+			var para = document.getElementById('para');
+			para.innerHTML = "SHIT";
+			console.log(document.getElementById('myTime').value);
+			console.log(new Date().getHours()+":"+new Date().getMinutes());
+			console.log(timing());
+			console.log(hrs+":"+mins+":"+secs);
+		}
+	</script>
+</body>
+</html>

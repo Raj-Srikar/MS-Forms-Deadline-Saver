@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+</head>
+<body>
+	<div class="office-form-question">
+	   <div class="office-form-question-content">
+	      <div class="question-title-box ">
+	         <div class="office-form-question-title"><span><span>Deadline:</span></span></div>
+	      </div>
+	      <div class="office-form-question-element">
+	    	<input type="time" style="background-color: #fff; text-align: center; font-size: 15px; height: 40px; padding: 12px; width: 15%;" id="deadLine">
+	      </div>
+	      <br>
+	      <button class="light-background-button" style="margin-left:20px; background:#000; color:#fff; font-size:15px; height:40px;text-align:center; width:50px;" onclick="setTimeout(function(){clickSubmit()},timing())">OK</button>
+	   </div>
+	</div>
+	<button id="sub" style="cursor: pointer;" onclick="clickme()">SUBMIT</button>
+	<p id="para"></p>
+	<script type="text/javascript">
+		var hrs, mins, secs, givenHr, givenMin, timeNow, given, now, x, countDown;
+		function timing() {
+			x = document.getElementById('deadLine').value;
+			givenHr = x.substr(0,2);
+			givenMin = x.substr(3,5);
+			hrs = new Date().getHours();
+			mins = new Date().getMinutes();
+			secs = new Date().getSeconds();
+			timeNow =  hrs + ":" + mins;
+			given = new Date(null,null,null,givenHr,givenMin-1,50);
+			now = new Date(null,null,null,hrs,mins,secs);
+			countDown = given-now;
+			if (countDown > 0) {
+				return countDown;
+			}
+			else{
+				alert('INVALID Deadline!');
+				return 86400000;
+			}
+		}
+		function clickSubmit() {
+			var sub = document.getElementById('sub');
+			sub.click();
+			console.log(document.getElementById('deadLine').value);
+			console.log(new Date().getHours()+":"+new Date().getMinutes());
+			// console.log(timing());
+			console.log(hrs+":"+mins+":"+secs);
+		}
+		function clickme() {
+			var p = document.getElementById('para');
+			p.innerHTML = "SUBMIT BUTTON HAS BEEN CLICKED";
+		}
+	</script>
+</body>
+</html>

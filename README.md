@@ -1,5 +1,5 @@
 # MS-Forms-Deadline-Saver
-It really breaks our hearts, when we attempt the questions in a qizz which we're confident about and leave the doubtful questions for later inspection, only to realise while we're trying to come up with a satisfying answer for the doubtful questions, that we've actually ran out of time and could no longer submit the form, making all our efforts go in vain. Well, we no longer have to worry about the deadlines. This tool will help you avoid this pain by saving you from running out of deadlines while submitting in MS Forms.
+It really breaks our hearts, when we attempt the questions in a quizz which we're confident about and leave the doubtful questions for later inspection, only to realise while we're trying to come up with a satisfying answer for the doubtful questions, that we've actually ran out of time and could no longer submit the form, making all our efforts go in vain. Well, we no longer have to worry about the deadlines. This tool will help you avoid this pain by saving you from running out of deadlines while submitting in MS Forms.
  
 ## Working
 The tool will be triggered automatically, 10 seconds prior to the deadline of the MS Form. After it's on, it will identify all the unattempted questions in the form and selects a single option of each unattempted question randomly and submits the form by itself.

@@ -13,6 +13,7 @@ Save a bookmark in your browser with any desired name and paste the following in
 After you open an MS Form, just click on this bookmark and it will create an **input time field**, using which you can provide the deadline time of that form and a new **OK** button, that looks similar to the submit button in the form. On clicking the **OK** button, the timer will be set. And when 10 seconds are remaining to hit the deadline, any one option of all the unattempted questions will be selected randomly and the form will be submitted automatically.
  
 ## Advantages
+- No more running out of time.
 - No more losing grades of the questions, that you know the answers of. 
 - Helps you concentrate more on the questions that you might be familiar with.
 - No more worrying about the questions, you're not confident about.

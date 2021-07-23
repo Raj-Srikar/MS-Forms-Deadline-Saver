@@ -4,9 +4,47 @@
          <div class="office-form-question-title"><span><span>Deadline:</span></span></div>
       </div>
       <div class="office-form-question-element">
-    	<input type="time" style="background-color: #fff; text-align: center; font-size: 15px; height: 40px; padding: 12px; width: 15%;" id="deadLine">
+    	<input type="time" id="deadLine">
       </div>
       <br>
-      <button class="light-background-button" style="margin-left:20px; background:#000; color:#fff; font-size:15px; height:40px;text-align:center; width:50px;" onclick="setTimeout(function(){clickSubmit()},timing())">OK</button>
+      <button id = "okButton" class="light-background-button" onclick="setTimeout(function(){clickSubmit()},timing())">OK</button>
    </div>
 </div>
+<style type="text/css">
+   #deadLine{
+      background-color: #fff;
+      text-align: center;
+      font-size: 15px;
+      height: 40px;
+      padding: 12px;
+      width: 15%;
+   }
+   #okButton{
+      margin-left:20px;
+      background:#000;
+      color:#fff;
+      font-size:15px;
+      height:40px;
+      text-align:center;
+      width:50px;
+   }
+   @media only screen and (max-width: 375px){
+       #deadLine{
+      background-color: #fff;
+      text-align: center;
+      font-size: 15px;
+      height: 40px;
+      padding: 12px;
+      width: 50%;
+   }
+   #okButton{
+      margin-left:0px;
+      background:#000;
+      color:#fff;
+      font-size:15px;
+      height:40px;
+      text-align:center;
+      width:50px;
+   }
+   }
+</style>

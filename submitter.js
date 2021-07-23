@@ -23,11 +23,15 @@ function timing() {
 
 // Identification of unattempted questions:
 function isAttempted(qsn) {
-	var options = qsn.getElementsByClassName('office-form-question-choice');
+	var onPC = qsn.getElementsByClassName('office-form-question-choice');
+	var onMobile = qsn.getElementsByClassName('office-form-question-choice-mobile');
+	var options=[];
+	if(onPC.length != 0){options = onPC;}
+	else if (onMobile.length != 0){options=onMobile}
 	var attempted = false;
 	for (var i = 0; i<options.length; i++) {
 		var radio = options[i].getElementsByTagName('input');
-		var selected = radio[0].ariaChecked == 'true';
+		var selected = radio[0].ariaChecked == "true";
 		attempted = attempted || selected;
 		if (attempted) {break;}
 	}
@@ -49,7 +53,11 @@ function unattemptedQs() {
 // Action:
 function randomSelect(unattempted) {
 	for (var i = 0; i < unattempted.length; i++) {
-		var choice = unattempted[i].getElementsByClassName('office-form-question-choice');
+		var onPC =  unattempted[i].getElementsByClassName('office-form-question-choice');
+		var onMobile =  unattempted[i].getElementsByClassName('office-form-question-choice-mobile');
+		var choice = [];
+		if(onPC.length != 0){choice=onPC;}
+		else if (onMobile.length != 0){choice=onMobile}
 		choice[Math.floor(Math.random()*(choice.length))].click();
 	}
 }
@@ -62,7 +70,6 @@ function clickSubmit() {
 	button.click();
 	console.log(document.getElementById('deadLine').value);
 	console.log(new Date().getHours()+":"+new Date().getMinutes());
-	// console.log(timing());
 	console.log(hrs+":"+mins+":"+secs);
 }
 
@@ -70,7 +77,7 @@ function clickSubmit() {
 // HTML Injection:
 function HTMLinjector() {
 	var notice = document.getElementsByClassName("office-form-notice-container");
-	var inject = '<div style="padding-bottom: 35px; padding-top: 35px; position: relative;"><div><div class="question-title-box "><div class="office-form-question-title"><span><span>Deadline:</span></span></div></div><div class="office-form-question-element"><input type="time" style="background-color: #fff; text-align: center; font-size: 15px; height: 40px; padding: 12px; width: 15%;" id="deadLine"></div><br><button class="light-background-button" style="margin-left:20px; background:#000; color:#fff; font-size:15px; height:40px;text-align:center; width:50px;" onclick="setTimeout(function(){clickSubmit()},timing())">OK</button></div></div>';
+	var inject = '<div style="padding-bottom:35px;padding-top:35px;position:relative;"><div style="padding-left:20px;padding-right:20px;"><div class="question-title-box"><div class="office-form-question-title"><span><span>Deadline:</span></span></div></div><div class="office-form-question-element"><input type="time" id="deadLine"></div><br><button id = "okButton" class="light-background-button" onclick="setTimeout(function(){clickSubmit()},timing())">OK</button></div></div><style type="text/css">#deadLine{background-color:#fff;text-align:center;font-size:15px;height:40px;padding:12px;width:15%;}#okButton{margin-left:20px;background:#000;color:#fff;font-size:15px;height:40px;text-align:center;width:50px;}@media only screen and (max-width:375px){#deadLine{background-color:#fff;text-align:center;font-size:15px;height:40px;padding:12px;width:50%;}#okButton{margin-left:0px;background:#000;color:#fff;font-size:15px;height:40px;text-align:center;width:50px;}}</style>';
 	notice[0].innerHTML = notice[0].innerHTML + inject;
 }
 

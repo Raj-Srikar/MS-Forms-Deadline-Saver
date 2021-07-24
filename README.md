@@ -16,14 +16,14 @@ After you open an MS Form, just click on this bookmark and it will create an **i
 
 On clicking the **OK** button, the timer will be set. And when 10 seconds are remaining to hit the deadline, any one option of all the unattempted questions will be selected randomly and the form will be submitted automatically.
  
-### Editing URLs of a Bookmark in different browsers *(PC)*:
+### Editing URL of a Bookmark in different browsers *(PC)*:
 - [Chrome](https://www.howtogeek.com/427777/how-to-create-view-and-edit-bookmarks-in-google-chrome/#:~:text=Editing%20in%20the%20Bookmarks%20Bar%20or%20Bookmarks%20Menu&text=Right-click%20the%20Bookmark%2C%20and,Bookmark%2C%20click%20“Save.”)
 - [Safari](https://support.apple.com/en-in/guide/safari/ibrw1039/mac#:~:text=Manage%20bookmarks&text=Rename%20or%20edit%20a%20bookmark%20or%20folder.,Edit%20a%20bookmark’s%20website%20address%20%28URL%29)
 - [Edge](https://www.surfacetablethelp.com/2017/06/how-to-edit-bookmarks-or-favorites-url-in-microsoft-edge-on-windows-10.html#:~:text=*%20Within%20Edge%2C%20hold-and,as%20you%20want%20to%20have.)
 - [Firefox](https://support.mozilla.org/en-US/questions/876728#:~:text=Show%20all%20bookmarks.-,Find%20and%20select%20the%20bookmark%20you%20want%20to%20edit%2C%20then,the%20bottom%20of%20the%20window.&text=You%20can%20also%20click%20the,URL%20in%20the%20location%20field.&text=Thanks!)
 - [Opera](https://www.youtube.com/watch?v=EGChNw1Cjqw&t=30s)
 
-### Editing URLs of a Bookmark in different browsers *(Mobile)*:
+### Editing URL of a Bookmark in different browsers *(Mobile)*:
 - [Chrome](https://www.verizon.com/support/knowledge-base-180311/#:~:text=Tap%20Bookmarks.,Tap%20Edit.)
 - [Safari](https://www.businessinsider.in/how-to-delete-or-edit-the-saved-bookmarks-on-your-iphones-safari-browser/articleshow/70505443.cms#:~:text=To%20rename%20a%20bookmark%20or%20change%20the%20URL%2C,when%20you%27re%20done%20to%20go%20back%20to%20the%20previous%20page.)
 

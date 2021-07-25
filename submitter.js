@@ -1,5 +1,5 @@
 // Deadline calculator:
-var timeOut,hrs,mins,secs,givenHr,givenMin,timeNow,given,now,x,countDown,ok,dlChk,rChk,rands;
+var timeOut,hrs,mins,secs,givenHr,givenMin,timeNow,given,now,x,countDown,ok,dlChk;
 
 function DLcheckbox() {
 	dlChk = document.getElementById('DLcheckbox');
@@ -8,17 +8,11 @@ function DLcheckbox() {
 		x.disabled=true;
 		ok.disabled=true;
 		ok.style.backgroundColor='#aaa';
-		rChk.disabled=true;
-		rands.style.color='#aaa';
-		rands.style.cursor='default';
 	}
 	else{
 		x.disabled=false;
 		ok.disabled=false;
 		ok.style.backgroundColor='#03787c';
-		rChk.disabled=false;
-		rands.style.color='#000';
-		rands.style.cursor='pointer';
 	}
 }
 
@@ -50,23 +44,30 @@ function isAttempted(qsn) {
 	var onPC = qsn.getElementsByClassName('office-form-question-choice');
 	var onMobile = qsn.getElementsByClassName('office-form-question-choice-mobile');
 	var options=[];
-	if(onPC.length != 0){options = onPC;}
-	else if (onMobile.length != 0){options=onMobile}
+	let mLength = onMobile.length;
+	let pcLength = onPC.length;
+	if(pcLength != 0){options=onPC}
+	else if (mLength != 0){options=onMobile}
 	var attempted = false;
-	for (var i = 0; i<options.length; i++) {
-		var radio = options[i].getElementsByTagName('input');
-		var selected = radio[0].ariaChecked == "true";
-		attempted = attempted || selected;
-		if (attempted) {break;}
+	if (pcLength != 0 || mLength != 0) {
+		for (var i = 0; i<options.length; i++) {
+			var radio = options[i].getElementsByTagName('input');
+			var selected = radio[0].ariaChecked == "true";
+			attempted = attempted || selected;
+			if (attempted) {break;}
+		}
+		return attempted;
 	}
-	return attempted;
+	else{return true;}
 }
 
 function unattemptedQs() {
 	var questions = document.getElementsByClassName('__question__');
 	var unattempted = [];
+	let isReq;
 	for (var i = 0; i<questions.length; i++) {
-		if (!isAttempted(questions[i])) {
+		isReq = questions[i].getElementsByClassName('required-star').length;
+		if (!isAttempted(questions[i]) && isReq) {
 			unattempted[unattempted.length] = questions[i];
 		}
 	}
@@ -89,9 +90,7 @@ function randomSelect(unattempted) {
 
 // Submission:
 function clickSubmit() {
-	if(rChk.checked){
-		randomSelect(unattemptedQs());
-	}
+	randomSelect(unattemptedQs());
 	var button = document.getElementsByClassName('__submit-button__')[0];
 	button.click();
 	ok.style.backgroundColor='#03787c';
@@ -104,13 +103,11 @@ function clickSubmit() {
 // HTML Injection:
 function HTMLinjector() {
 	var notice = document.getElementsByClassName("office-form-notice-container");
-	var inject = '<div style="padding-top:35px;position:relative;"><div style="padding-left:20px;padding-right:20px;"><div class="question-title-box"><label style="font-weight:NORMAL;margin-left:-10px;"><input type="checkbox" id="DLcheckbox" style="bottom:0;height:18px;margin:auto 0 auto 0;position:absolute;top:0;width:20px;cursor:pointer" checked onclick="DLcheckbox()"><div class="office-form-question-title" style="margin-left:30px;margin-top:2px;cursor:pointer"><span>Deadline:</span></div></label></div><div class="office-form-question-element"><input type="time" id="deadLine"><br><label style="margin-top:15px;"><input type="checkbox" checked id="randomchk" style="height:12px;position:absolute;width:20px;cursor:pointer;"><div style="margin-left:25px;cursor:pointer;font-weight:NORMAL;font-size:14px;margin-top:1px;white-space:normal;" class="office-form-question-title"><span id="rands">Select random options before submitting</span></div></label></div><button id="okButton" class="light-background-button" onclick="timeOut=setTimeout(function(){clickSubmit()},timing())">OK</button></div></div><style type="text/css">#deadLine{background-color:#fff;text-align:center;font-size:15px;height:40px;padding:12px;width:15%;}#okButton{margin:10px 0 0 20px;background:#03787c;color:#fff;font-size:15px;height:35px;text-align:center;width:50px;}@media only screen and (max-width:375px){#deadLine{width:50%;}#okButton{margin-left:0px;}}</style>';
+	var inject = '<div style="padding-top:35px;position:relative;"><div style="padding-left:20px;padding-right:20px;"><div class="question-title-box"><label style="font-weight:NORMAL;margin-left:-10px;"><input type="checkbox" id="DLcheckbox" style="bottom:0;height:18px;margin:auto 0 auto 0;position:absolute;top:0;width:20px;cursor:pointer" checked onclick="DLcheckbox()"><div class="office-form-question-title" style="margin-left:30px;margin-top:2px;cursor:pointer"><span>Deadline:</span></div></label></div><div class="office-form-question-element"><input type="time" id="deadLine"><br><br></div><button id="okButton" class="light-background-button" onclick="timeOut=setTimeout(function(){clickSubmit()},timing())">OK</button></div></div><style type="text/css">#deadLine{background-color:#fff;text-align:center;font-size:15px;height:40px;padding:12px;width:15%;}#okButton{margin:10px 0 0 20px;background:#03787c;color:#fff;font-size:15px;height:35px;text-align:center;width:50px;}@media only screen and (max-width:375px){#deadLine{width:50%;}#okButton{margin-left:0px;}}</style>';
 	notice[0].innerHTML = notice[0].innerHTML + inject;
 }
 
 HTMLinjector();
 
-rands = document.getElementById('rands');
-rChk = document.getElementById('randomchk');
 ok = document.getElementById('okButton');
 x = document.getElementById('deadLine');

@@ -37,6 +37,7 @@ On clicking the **OK** button, the timer will be set and the color (of this butt
 ## Note from the Developer
 - Make sure that you know the exact deadline of the form before using this tool and also that you set the timer accordingly.
 - This tool works only when all the questions in the form are MCQs, i.e only radio buttons (also works for checkboxes).
+- Disable random selection option before deploying the tool, if the form has negative marking.
 - Before completely relying upon this tool, if the form has any text fields that are mandatory to be answered before submitting, make sure you fill them all. Else, when this tool tries to submit the form, it won't get submitted.
 - If clicking on the bookmark doesn't work, type the name of the bookmark in your browser's address bar and find the bookmark in the suggestions and click on it.
 - Please don't deploy the tool more than once. Else, multiple clones of the tool will be created and may missbehave. In this case, just reload the page and deploy the tool again.

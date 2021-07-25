@@ -1,15 +1,21 @@
-<div style="padding-bottom:35px;padding-top:35px;position:relative;">
+<div style="padding-top:35px;position:relative;">
    <div style="padding-left:20px;padding-right:20px;">
-      <div class="question-title-box ">
+      <div class="question-title-box">
          <label style="font-weight:NORMAL;margin-left:-10px;">
             <input type="checkbox" id="DLcheckbox" style="bottom:0;height:18px;margin:auto 0 auto 0;position:absolute;top:0;width:20px;cursor:pointer" checked onclick="DLcheckbox()">
             <div class="office-form-question-title" style="margin-left:30px;margin-top:2px;cursor:pointer"><span>Deadline:</span></div>
          </label>
       </div>
       <div class="office-form-question-element">
-    	<input type="time" id="deadLine">
+       	<input type="time" id="deadLine">
+         <br>
+         <label style="margin-top: 15px;">
+            <input type="checkbox" checked id="randomchk" style="height: 12px;position:absolute;width:20px;cursor:pointer;">
+            <div style="margin-left:25px;cursor:pointer;font-weight: NORMAL;font-size:14px;margin-top:1px;white-space: normal;" class="office-form-question-title">
+            <span id="rands">Select random options before submitting</span>
+         </div>
+         </label>
       </div>
-      <br>
       <button id = "okButton" class="light-background-button" onclick="timeOut=setTimeout(function(){clickSubmit()},timing())">OK</button>
    </div>
 </div>

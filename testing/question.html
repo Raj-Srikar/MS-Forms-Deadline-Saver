@@ -7,21 +7,32 @@
          </label>
       </div>
       <div class="office-form-question-element">
-       	<input type="time" id="deadLine">
+       	<input type="time" id="deadLine" onchange="if(isOk)setTimer()">
          <br>
+         <label style="margin:25px 0 10px;font-weight:NORMAL;">
+            <div style="font-size:14px;margin-top:1px;white-space: normal;margin-left:0px;display:inline;" class="office-form-question-title">
+               <span id="subTime">Submit before:</span>
+            </div>
+         </label>
+         <select id="subInps" style="width:100px;margin-left:5px;border-radius:5px;" onchange="if(isOk)setTimer()">
+             <option value="10">10 seconds</option>
+             <option value="20">20 seconds</option>
+             <option value="30">30 seconds</option>
+             <option value="45">45 seconds</option>
+         </select>
          <br>
       </div>
-      <button id = "okButton" class="light-background-button" onclick="timeOut=setTimeout(function(){clickSubmit()},timing())">OK</button>
+      <button id="okButton" class="light-background-button" onclick="setTimer()">OK</button>
    </div>
 </div>
 <style type="text/css">
    #deadLine{
-      background-color: #fff;
-      text-align: center;
-      font-size: 15px;
-      height: 40px;
-      padding: 12px;
-      width: 15%;
+      background-color:#fff;
+      text-align:center;
+      font-size:15px;
+      height:40px;
+      padding:12px;
+      width:15%;
    }
    #okButton{
       margin:10px 0 0 20px;
@@ -32,9 +43,9 @@
       text-align:center;
       width:50px;
    }
-   @media only screen and (max-width: 375px){
+   @media only screen and (max-width:375px){
       #deadLine{
-         width: 50%;
+         width:50%;
       }
       #okButton{
          margin-left:0px;

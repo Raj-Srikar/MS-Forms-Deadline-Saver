@@ -21,6 +21,12 @@
              <option value="45">45 seconds</option>
          </select>
          <br>
+         <label style="margin:10px 0">
+            <input type="checkbox" id="timerChk" style="height:12px;position:absolute;width:20px;cursor:pointer;" onclick="tmrCheckbox()">
+            <div style="margin-left:25px;cursor:pointer;font-weight:NORMAL;font-size:14px;margin-top:1px;white-space:normal;" class="office-form-question-title">
+               <span id="timerLbl">SHOW TIMER</span>
+            </div>
+         </label>
       </div>
       <button id="okButton" class="light-background-button" onclick="setTimer()">OK</button>
    </div>
@@ -43,12 +49,31 @@
       text-align:center;
       width:50px;
    }
+   #timer{
+      font-size:60px;
+      margin-top:-140px;
+      color:limegreen;
+      background-color:black;
+      right:25px;
+      position:fixed;
+      line-height:normal;
+      z-index:1;
+      padding:0 15px;
+      border-radius:15px;
+      font-family:monospace;
+   }
    @media only screen and (max-width:375px){
       #deadLine{
          width:50%;
       }
       #okButton{
          margin-left:0px;
+      }
+      #timer{
+         padding:0 15px;
+         margin-top:-10px;
+         font-size:45px;
+         right:25px;
       }
    }
 </style>
